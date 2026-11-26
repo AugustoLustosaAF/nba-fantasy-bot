@@ -38,6 +38,14 @@ const {
   executarComandoTroca
 } = require('./commands/troca');
 
+const {
+  executarComandoClassificacao
+} = require('./commands/classificacao');
+
+const {
+  executarComandoTime
+} = require('./commands/time');
+
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -87,7 +95,16 @@ if (
   return;
 }
 
-  // Notícias da NBA
+// Classificação da NBA
+if (
+  command === '!classificacao' ||
+  command === '!classificação'
+) {
+  await executarComandoClassificacao(message);
+  return;
+}
+
+// Notícias da NBA
 if (command === '!noticias') {
   await executarComandoNoticias(message);
   return;
@@ -130,6 +147,8 @@ if (command.startsWith('!comparar')) {
 }
 
 // Análise de trocas da Fantasy
+
+// Análise de trocas da Fantasy
 if (command.startsWith('!troca')) {
   const argumento = message.content
     .trim()
@@ -164,8 +183,18 @@ if (command.startsWith('!troca')) {
   return;
 }
 
+// Informações de um time da NBA
+if (command.startsWith('!time')) {
+  const nomeTime = message.content
+    .trim()
+    .slice('!time'.length)
+    .trim();
+
+  await executarComandoTime(message, nomeTime);
+  return;
 }
-);
+
+});
 
 // Inicia o bot
 client.login(process.env.DISCORD_TOKEN);
