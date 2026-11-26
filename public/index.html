@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meu Fantasy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1 id="liga">Meu Fantasy</h1>
+    <label>Meu time <select id="time"></select></label>
+  </header>
+  <nav>
+    <button data-aba="time">Meu time</button>
+    <button data-aba="escalacao">Escalação</button>
+    <button data-aba="confronto">Confronto</button>
+    <button data-aba="calendario">Calendário</button>
+    <button data-aba="stats">Estatísticas</button>
+    <button data-aba="jogador">Jogador</button>
+    <button data-aba="livres">Livres</button>
+    <button data-aba="troca">Trocas</button>
+    <button data-aba="liga">Minha liga</button>
+  </nav>
+  <p id="aviso" role="status">Carregando…</p>
+  <main id="conteudo"></main>
+  <script src="analises.js"></script>
+  <script src="planejamento.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

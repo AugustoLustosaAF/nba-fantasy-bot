@@ -26,17 +26,6 @@ async function buscarDadosFantasy() {
 
   const liga = response.data;
 
-  console.log('DEBUG ESTRUTURA ESPN:', {
-  leagueKeys: Object.keys(liga),
-  teamsCount: liga.teams?.length,
-  firstTeamKeys: liga.teams?.[0]
-    ? Object.keys(liga.teams[0])
-    : [],
-  firstTeamRoster: liga.teams?.[0]?.roster,
-  firstTeamEntries: liga.teams?.[0]?.roster?.entries,
-  scheduleCount: liga.schedule?.length
-});
-
   const equipe = (liga.teams || []).find(time =>
     normalizarNome(time.name || '') ===
     normalizarNome('Cavaleiros do Barra 23')
@@ -54,7 +43,8 @@ function obterMediaFpts(jogador) {
   const estatisticas = jogador.stats || [];
 
   const reais = estatisticas.filter(
-    stat => Number(stat.statSourceId) === 1
+    stat => Number(stat.statSourceId) === 0 &&
+      Number(stat.seasonId) === Number(process.env.ESPN_SEASON)
   );
 
   const temporada = reais.find(

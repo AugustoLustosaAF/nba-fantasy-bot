@@ -1,0 +1,63 @@
+:root { color-scheme: light dark; --linha: #8884; --destaque: #e8590c; }
+* { box-sizing: border-box; }
+body { font-family: system-ui, sans-serif; max-width: 640px; margin: 0 auto; padding: 16px; line-height: 1.4; }
+h1 { font-size: 1.4rem; margin: 0 0 8px; }
+h2 { font-size: 1rem; margin: 20px 0 8px; }
+select, button { font: inherit; padding: 8px; }
+select { max-width: 100%; }
+nav { display: flex; gap: 8px; margin-top: 12px; }
+nav button { flex: 1; border: 1px solid var(--linha); border-radius: 8px; background: none; color: inherit; }
+nav .ativa { background: var(--destaque); border-color: var(--destaque); color: #fff; }
+small, #aviso { opacity: .75; font-size: .85rem; }
+.elenco { list-style: none; padding: 0; margin: 0; }
+.elenco li { display: flex; gap: 10px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--linha); }
+.elenco div { flex: 1; min-width: 0; }
+.elenco small { display: block; }
+.vaga { width: 46px; font-size: .75rem; font-weight: 700; }
+.folga { opacity: .55; }
+.status, .alerta { color: var(--destaque); font-weight: 700; }
+.status { font-size: .75rem; }
+.placar { border: 1px solid var(--linha); border-radius: 10px; padding: 10px 12px; margin-top: 8px; }
+.placar div { display: flex; justify-content: space-between; gap: 8px; }
+table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+th, td { text-align: left; padding: 6px 4px; border-bottom: 1px solid var(--linha); }
+.link { background: none; border: 0; padding: 0; color: var(--destaque); text-align: left; cursor: pointer; }
+
+/* Telas de análise */
+body { max-width: 1040px; }
+nav { overflow-x: auto; }
+nav button { white-space: nowrap; }
+input { font: inherit; padding: 8px; max-width: 100%; }
+input[type=number] { width: 90px; }
+.filtros { display: flex; flex-wrap: wrap; gap: 10px; margin: 8px 0; }
+.rolagem { overflow-x: auto; }
+.calor { font-size: .82rem; white-space: nowrap; }
+.calor td { text-align: center; }
+.calor tbody th { position: sticky; left: 0; background: Canvas; text-align: left; }
+.calor th button { background: none; border: 0; color: inherit; padding: 0; font-weight: 700; cursor: pointer; }
+.calor tbody th .link { color: var(--destaque); }
+.cartoes { display: grid; grid-template-columns: repeat(auto-fit, minmax(105px, 1fr)); gap: 8px; }
+.cartoes div { border: 1px solid var(--linha); border-radius: 10px; padding: 8px 10px; }
+.cartoes small, .cartoes b { display: block; }
+.grafico { display: flex; gap: 6px; padding-top: 24px; }
+.coluna { flex: 1; min-width: 38px; max-width: 70px; text-align: center; }
+.area { position: relative; height: 220px; margin-bottom: 6px; }
+.area i { position: absolute; left: 10%; width: 80%; border-radius: 4px; }
+.area i.bom { background: #16a34a; }
+.area i.ruim { background: #dc2626; }
+.area b { position: absolute; left: 0; width: 100%; font-size: .75rem; }
+.area hr { position: absolute; left: -3px; right: -3px; margin: 0; border: 0; border-top: 2px dashed currentColor; }
+.lados { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
+fieldset { border: 1px solid var(--linha); border-radius: 10px; min-width: 0; }
+fieldset label { display: block; padding: 5px 0; }
+.calor .linha2 { display: block; font-weight: 400; }
+.placar .elenco div { display: block; }
+.marcada { background: #e8590c22; }
+.sobe { color: #16a34a; font-weight: 700; }
+.desce { color: #dc2626; font-weight: 700; }
+
+/* Calendário e escalação */
+.agenda { font-size: .8rem; white-space: nowrap; }
+.agenda td { text-align: center; }
+.agenda tbody th { position: sticky; left: 0; background: Canvas; text-align: left; }
+.agenda .joga { background: #16a34a33; }

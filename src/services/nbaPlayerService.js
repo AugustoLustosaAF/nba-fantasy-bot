@@ -120,6 +120,7 @@ async function buscarAnaliseJogador(nome) {
   const dados = resposta.data;
 
   const categorias = (dados.seasonTypes || [])
+    .filter(tipo => !/preseason/i.test(tipo.displayName || ''))
     .flatMap(tipo => tipo.categories || []);
 
   const partidas = categorias.flatMap(categoria =>
@@ -133,6 +134,7 @@ async function buscarAnaliseJogador(nome) {
           detalhes?.opponent?.displayName ||
           detalhes?.opponent?.abbreviation ||
           'Não informado',
+        casa: detalhes?.atVs ? detalhes.atVs === 'vs' : null,
         stats: evento.stats
       };
     })
@@ -152,13 +154,13 @@ async function buscarAnaliseJogador(nome) {
         id: partida.id,
         data: partida.data,
         adversario: partida.adversario,
+        casa: partida.casa,
         minutos: estatisticas.minutos,
         pontos: estatisticas[0],
         rebotes: estatisticas[6],
         assistencias: estatisticas[3],
         roubos: estatisticas[2],
         turnovers: estatisticas[11],
-        fpts: calcularFPTS(estatisticas, regras),
         fpts: calcularFPTS(estatisticas, regras)
       };
     })
@@ -256,7 +258,8 @@ async function buscarAnaliseJogador(nome) {
     maiorSequencia,
     variacaoPercentual,
     tendencia,
-    jogosRecentes: ultimos5
+    jogosRecentes: ultimos5,
+    jogos
   };
 }
 

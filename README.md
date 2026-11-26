@@ -215,3 +215,17 @@ Repositório: [NBA Fantasy Bot](https://github.com/AugustoLustosaAF/nba-fantasy-
 ---
 
 Desenvolvido com 🏀 e JavaScript para acompanhar a NBA e o ESPN Fantasy Basketball.
+---
+
+## 📱 Aplicação web
+
+Telas **Meu time** e **Minha liga**, usando o mesmo `.env` do bot (veja `.env.example`).
+
+```bash
+npm install
+npm run app
+```
+
+Abra `http://localhost:3000`. Use `ESPN_SEASON=2027` para a temporada 2026-27.
+
+Para abrir no celular na mesma rede Wi-Fi, defina `HOST=0.0.0.0` e acesse `http://IP-DO-COMPUTADOR:3000`. Ainda não há login: faça isso apenas em uma rede de confiança e não publique na internet.
